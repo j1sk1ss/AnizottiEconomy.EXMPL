@@ -1,6 +1,6 @@
 package org.cordell.com.anizottieconomy.listeners;
 
-import io.papermc.paper.event.player.PlayerPurchaseEvent;
+import io.papermc.paper.event.player.PlayerTradeEvent;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,9 +12,7 @@ import java.time.LocalDate;
 
 public class TradeListener implements Listener {
     @EventHandler
-    public void onTrade(PlayerPurchaseEvent event) {
-        System.out.println(event.getPlayer().getName() + " buy something!");
-
+    public void onTrade(PlayerTradeEvent event) {
         var earns = event.getTrade().getResult();
         if (earns.getType() != Material.EMERALD) return;
 
@@ -25,8 +23,6 @@ public class TradeListener implements Listener {
 
         var currentKey = day + "." + month + "." + year;
         var manager = AnizottiEconomy_EXMPL.dataManager;
-
-        System.out.println("Today is " + currentKey);
 
         try {
             var value = manager.GetValue(currentKey);

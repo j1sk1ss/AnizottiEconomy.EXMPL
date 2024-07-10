@@ -11,8 +11,7 @@ import java.util.Map;
 public class Prices {
     public static Map<Material, Double> Prices = new HashMap<>();
 
-    public static Double Inflation;
-
+    public static Double Inflation = 0d;
 
     public static int GetWeeksDuration(LocalDate startDate) {
         var currentDate = LocalDate.now();

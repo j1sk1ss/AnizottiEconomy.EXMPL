@@ -2,6 +2,7 @@ package org.cordell.com.anizottieconomy.db;
 
 import org.cordell.com.anizottieconomy.common.Triple;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,12 +14,19 @@ public class DataManager {
     public DataManager(String location, String fileName) {
         Path = location;
         FileName = fileName;
-    }
 
+        var file = new File(Path + FileName);
+        if (!file.exists()) {
+            try {
+                if (!file.createNewFile()) System.out.println("Error creating file");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 
     private final String Path;
     private final String FileName;
-
 
     /**
      * Add new key
