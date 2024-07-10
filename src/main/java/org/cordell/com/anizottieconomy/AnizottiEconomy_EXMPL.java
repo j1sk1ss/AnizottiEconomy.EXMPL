@@ -8,7 +8,7 @@ import org.cordell.com.anizottieconomy.listeners.CommandListener;
 import java.util.Arrays;
 import java.util.Objects;
 
-public final class AnizottiEconomy extends JavaPlugin {
+public final class AnizottiEconomy_EXMPL extends JavaPlugin {
     public static DataManager dataManager;
 
     @Override
@@ -17,7 +17,7 @@ public final class AnizottiEconomy extends JavaPlugin {
         Prices.UpdatePrices();
 
         var command_manager = new CommandListener();
-        for (var command : Arrays.asList("buy", "g2c", "g2s", "fp", "sp", "price_calculate"))
+        for (var command : Arrays.asList("buy", "g2c", "g2s", "fp", "sp", "price_calculate", "info"))
             Objects.requireNonNull(getCommand(command)).setExecutor(command_manager);
     }
 

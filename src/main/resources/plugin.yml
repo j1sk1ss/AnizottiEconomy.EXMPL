@@ -2,3 +2,27 @@ name: AnizottiEconomy.EXMPL
 version: '${project.version}'
 main: org.cordell.com.anizottieconomy.AnizottiEconomy_EXMPL
 api-version: '1.21'
+
+
+commands:
+  buy:
+    usage: /buy
+    description: open buy gui
+  g2c:
+    usage: /g2c <nickname>
+    description: switch game mode to creative
+  g2s:
+    usage: /g2s <nickname>
+    description: switch game mode to survival
+  fp:
+    usage: /fp
+    description: set first point
+  sp:
+    usage: /sp
+    description: set second point
+  price_calculate:
+    usage: /price_calculate
+    description: calculate average price of area
+  info:
+    usage: /info
+    description: get inflation, prices and weeks
