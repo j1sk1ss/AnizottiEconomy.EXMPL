@@ -5,8 +5,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.cordell.com.anizottieconomy.common.Tuple;
 import org.cordell.com.anizottieconomy.db.Prices;
+import org.cordell.com.cordelldb.common.Tuple;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;

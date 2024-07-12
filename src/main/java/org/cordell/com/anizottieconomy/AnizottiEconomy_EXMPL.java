@@ -2,10 +2,10 @@ package org.cordell.com.anizottieconomy;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.cordell.com.anizottieconomy.db.DataManager;
 import org.cordell.com.anizottieconomy.db.Prices;
 import org.cordell.com.anizottieconomy.listeners.CommandListener;
 import org.cordell.com.anizottieconomy.listeners.TradeListener;
+import org.cordell.com.cordelldb.manager.Manager;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,11 +13,11 @@ import java.util.Objects;
 
 
 public final class AnizottiEconomy_EXMPL extends JavaPlugin {
-    public static DataManager dataManager;
+    public static Manager dataManager;
 
     @Override
     public void onEnable() {
-        dataManager = new DataManager("", "anizottieconomy.txt");
+        dataManager = new Manager("", "anizottieconomy.txt");
         Prices.UpdatePrices();
 
         for (var listener : List.of(new TradeListener()))

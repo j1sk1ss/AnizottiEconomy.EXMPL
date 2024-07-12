@@ -25,9 +25,9 @@ public class TradeListener implements Listener {
         var manager = AnizottiEconomy_EXMPL.dataManager;
 
         try {
-            var value = manager.GetValue(currentKey);
-            if (value == null) manager.AddKey(currentKey, earns.getAmount() + "");
-            else  manager.SetValue(currentKey, (Integer.parseInt(value.z) + earns.getAmount()) + "");
+            var value = manager.getRecord(currentKey);
+            if (value == null) manager.addRecord(currentKey, earns.getAmount() + "");
+            else  manager.setRecord(currentKey, (Integer.parseInt(value.z) + earns.getAmount()) + "");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
