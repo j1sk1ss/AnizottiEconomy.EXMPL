@@ -29,23 +29,23 @@ public class CommandListener implements CommandExecutor {
 
         switch (command.getName()) {
             case "fp":
+                player.sendMessage("First point: (" + player.getLocation().getBlockX()+ "," + player.getLocation().getBlockY() + ")");
                 if (previous == null) {
                     Locations.put(player, new Tuple<>(player.getLocation(), null));
                     break;
                 }
 
                 Locations.put(player, new Tuple<>(player.getLocation(), previous.y));
-                player.sendMessage("First point: (" + previous.x + "," + previous.y + ")");
             break;
 
             case "sp":
+                player.sendMessage("Second point: (" + player.getLocation().getBlockX()+ "," + player.getLocation().getBlockY() + ")");
                 if (previous == null) {
                     Locations.put(player, new Tuple<>(null, player.getLocation()));
                     break;
                 }
 
                 Locations.put(player, new Tuple<>(previous.x, player.getLocation()));
-                player.sendMessage("Second point: (" + previous.x + "," + previous.y + ")");
             break;
 
             case "info":
