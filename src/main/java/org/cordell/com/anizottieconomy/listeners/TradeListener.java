@@ -17,17 +17,17 @@ public class TradeListener implements Listener {
         if (earns.getType() != Material.EMERALD) return;
 
         var currentDate = LocalDate.now();
-        var day = String.valueOf(currentDate.getDayOfMonth());
+        var day   = String.valueOf(currentDate.getDayOfMonth());
         var month = String.valueOf(currentDate.getMonthValue());
-        var year = String.valueOf(currentDate.getYear());
+        var year  = String.valueOf(currentDate.getYear());
 
         var currentKey = day + "." + month + "." + year;
         var manager = AnizottiEconomy_EXMPL.dataManager;
 
         try {
             var value = manager.getRecord(currentKey);
-            if (value == null) manager.addRecord(currentKey, earns.getAmount() + "");
-            else  manager.setRecord(currentKey, (Integer.parseInt(value.z) + earns.getAmount()) + "");
+            if (value == null) manager.setInt(currentKey, earns.getAmount());
+            else  manager.setInt(currentKey, value.z.asInteger() + earns.getAmount());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

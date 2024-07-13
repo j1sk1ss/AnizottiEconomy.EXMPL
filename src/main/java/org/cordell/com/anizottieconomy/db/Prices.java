@@ -43,27 +43,33 @@ public class Prices {
 
         // Металлы
         Prices.put(Material.IRON_BLOCK, (9 + 9 * Inflation) / 3);
+        Prices.put(Material.IRON_INGOT, (1 + 1 * Inflation) / 3);
+
         Prices.put(Material.COPPER_BLOCK, (9 + 9 * Inflation) / 3);
+        Prices.put(Material.COPPER_INGOT, (1 + 1 * Inflation) / 3);
+
         Prices.put(Material.GOLD_BLOCK, (9 + 9 * Inflation) / 3);
+        Prices.put(Material.GOLD_INGOT, (1 + 1 * Inflation) / 3);
 
         // Алмазы
-        Prices.put(Material.DIAMOND_BLOCK, (9 + 9 * Inflation));
+        Prices.put(Material.DIAMOND_BLOCK, 9 + 9 * Inflation);
+        Prices.put(Material.DIAMOND, 1 + 1 * Inflation);
 
         // Песок
         Prices.put(Material.SAND, (1 + 1 * Inflation) / 12);
 
         // Стекло
         Prices.put(Material.GLASS, (1 + 1 * Inflation) / 4);
+        Prices.put(Material.GLASS_PANE, (1 + 1 * Inflation) / 4);
 
         // Слизь
-        Prices.put(Material.SLIME_BLOCK, (4 + 4 * Inflation) / 9);
+        Prices.put(Material.SLIME_BLOCK, (36 + 36 * Inflation) / 9);
+        Prices.put(Material.SLIME_BALL, (4 + 4 * Inflation) / 9);
     }
 
     public static Double GetPrice(Material material) {
         var price = Prices.get(material);
-        if (price == null)
-            return 0.5;
-
+        if (price == null) return 0.5;
         return price;
     }
 }

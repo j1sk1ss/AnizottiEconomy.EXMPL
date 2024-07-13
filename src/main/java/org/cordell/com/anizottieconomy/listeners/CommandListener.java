@@ -1,6 +1,7 @@
 package org.cordell.com.anizottieconomy.listeners;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -34,7 +35,8 @@ public class CommandListener implements CommandExecutor {
                 }
 
                 Locations.put(player, new Tuple<>(player.getLocation(), previous.y));
-                break;
+                player.sendMessage("First point: (" + previous.x + "," + previous.y + ")");
+            break;
 
             case "sp":
                 if (previous == null) {
@@ -43,14 +45,15 @@ public class CommandListener implements CommandExecutor {
                 }
 
                 Locations.put(player, new Tuple<>(previous.x, player.getLocation()));
-                break;
+                player.sendMessage("Second point: (" + previous.x + "," + previous.y + ")");
+            break;
 
             case "info":
                 player.sendMessage(
                         "Inflation: " + Prices.Inflation + "%\n",
                         "Weeks: " + Prices.GetWeeksDuration(LocalDate.of(2023, 5, 20)) + "\n"
                 );
-                break;
+            break;
 
             case "price_calculate":
                 if (previous == null) break;
@@ -72,17 +75,15 @@ public class CommandListener implements CommandExecutor {
                 for (int x = minX; x <= maxX; x++) {
                     for (int y = minY; y <= maxY; y++) {
                         for (int z = minZ; z <= maxZ; z++) {
-                            var block = world.getBlockAt(x, y, z);
-                            var material = block.getType();
-                            var price = org.cordell.com.anizottieconomy.db.Prices.GetPrice(material);
-
-                            totalCost += price;
+                            var material = world.getBlockAt(x, y, z).getType();
+                            if (material.equals(Material.AIR)) continue;
+                            totalCost += org.cordell.com.anizottieconomy.db.Prices.GetPrice(material);
                         }
                     }
                 }
 
                 player.sendMessage("Total cost of the area: " + totalCost + " HAD");
-                break;
+            break;
         }
 
         return true;

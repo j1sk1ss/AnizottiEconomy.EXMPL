@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.cordell.com.anizottieconomy.db.Prices;
 import org.cordell.com.anizottieconomy.listeners.CommandListener;
+import org.cordell.com.anizottieconomy.listeners.PlayerListener;
 import org.cordell.com.anizottieconomy.listeners.TradeListener;
 import org.cordell.com.cordelldb.manager.Manager;
 
@@ -20,7 +21,7 @@ public final class AnizottiEconomy_EXMPL extends JavaPlugin {
         dataManager = new Manager("", "anizottieconomy.txt");
         Prices.UpdatePrices();
 
-        for (var listener : List.of(new TradeListener()))
+        for (var listener : List.of(new TradeListener(), new PlayerListener()))
             Bukkit.getPluginManager().registerEvents(listener, this);
 
         var command_manager = new CommandListener();

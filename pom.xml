@@ -77,7 +77,7 @@
       <dependency>
           <groupId>com.github.j1sk1ss</groupId>
           <artifactId>CordellDB.EXMPL</artifactId>
-          <version>ver0.1</version>
+          <version>ver0.2</version>
       </dependency>
   </dependencies>
 </project>
