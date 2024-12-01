@@ -35,7 +35,7 @@ public class CommandListener implements CommandExecutor {
                     break;
                 }
 
-                Locations.put(player, new Tuple<>(player.getLocation(), previous.y));
+                Locations.put(player, new Tuple<>(player.getLocation(), previous.y()));
             break;
 
             case "sp":
@@ -45,7 +45,7 @@ public class CommandListener implements CommandExecutor {
                     break;
                 }
 
-                Locations.put(player, new Tuple<>(previous.x, player.getLocation()));
+                Locations.put(player, new Tuple<>(previous.x(), player.getLocation()));
             break;
 
             case "info":
@@ -58,8 +58,8 @@ public class CommandListener implements CommandExecutor {
             case "price_calculate":
                 if (previous == null) break;
 
-                var firstLocation = Locations.get(player).x;
-                var secondLocation = Locations.get(player).y;
+                var firstLocation = Locations.get(player).x();
+                var secondLocation = Locations.get(player).y();
                 if (firstLocation == null || secondLocation == null) break;
 
                 var totalCost = 0d;
