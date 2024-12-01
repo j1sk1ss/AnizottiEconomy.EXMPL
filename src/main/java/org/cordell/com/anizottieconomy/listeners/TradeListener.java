@@ -52,7 +52,7 @@ public class TradeListener implements Listener {
                 var newIngredients = new ArrayList<ItemStack>();
 
                 if (result.getType() == Material.EMERALD)
-                    result = new ItemStack(Material.EMERALD_BLOCK, result.getAmount());
+                    result = new ItemStack(Material.EMERALD_BLOCK, result.getAmount() * 2);
 
                 for (var ingredient : ingredients) {
                     if (ingredient != null && ingredient.getType() == Material.EMERALD) newIngredients.add(new ItemStack(Material.EMERALD_BLOCK, ingredient.getAmount() * 2));
